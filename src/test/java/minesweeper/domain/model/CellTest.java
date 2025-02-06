@@ -45,7 +45,6 @@ class CellTest {
 
         cell.toggleFlag();
 
-        assertTrue(cell.isFlagged());
+        assertEquals(flag, cell.isFlagged());
     }
-
 }
