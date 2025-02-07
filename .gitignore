@@ -29,3 +29,16 @@ out/
 !**/src/test/**/out/
 .idea
 minesweeper.iml
+
+# Gradle cache and generated files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Lock files
+*.lock
+*.bin
+
+# OS-specific files
+.DS_Store
+Thumbs.db
