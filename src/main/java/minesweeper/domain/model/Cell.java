@@ -39,6 +39,7 @@ public class Cell {
     }
 
     public void toggleFlag() {
-
+        if (!isRevealed())
+            flagged = !flagged;
     }
 }
