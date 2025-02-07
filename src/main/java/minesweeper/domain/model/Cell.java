@@ -18,16 +18,8 @@ public class Cell {
         return flagged;
     }
 
-    public void setFlagged(boolean flagged) {
-        this.flagged = flagged;
-    }
-
     public boolean isRevealed() {
         return revealed;
-    }
-
-    public void setRevealed(boolean revealed) {
-        this.revealed = revealed;
     }
 
     public int getAdjacentMines() {
@@ -44,6 +36,8 @@ public class Cell {
     }
 
     public void reveal() {
-
+        if (!isFlagged()) {
+            revealed = true;
+        }
     }
 }
