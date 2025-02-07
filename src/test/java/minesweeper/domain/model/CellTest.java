@@ -62,7 +62,7 @@ class CellTest {
     }
 
     @Test
-    void reveal_WhenFlaggedAndIsNotMine_NotReviewCell() {
+    void reveal_WhenFlagged_NotReviewCell() {
         var cell = Instancio.of(Cell.class)
                 .set(field(Cell::isFlagged), true)
                 .set(field(Cell::isRevealed), false)
@@ -75,9 +75,9 @@ class CellTest {
     }
 
     @Test
-    void reveal_WhenFlaggedAndIsMine_ThrowExplosionException() {
+    void reveal_WhenNotFlaggedAndIsMine_ThrowExplosionException() {
         var cell = Instancio.of(Cell.class)
-                .set(field(Cell::isFlagged), true)
+                .set(field(Cell::isFlagged), false)
                 .set(field(Cell::isRevealed), false)
                 .set(field(Cell::isMine), true)
                 .create();
