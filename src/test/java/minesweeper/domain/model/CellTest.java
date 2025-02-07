@@ -1,5 +1,6 @@
 package minesweeper.domain.model;
 
+import minesweeper.domain.exception.ExplosionException;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -61,14 +62,26 @@ class CellTest {
     }
 
     @Test
-    void reveal_WhenFlagged_NotReviewCell() {
+    void reveal_WhenFlaggedAndIsNotMine_NotReviewCell() {
         var cell = Instancio.of(Cell.class)
                 .set(field(Cell::isFlagged), true)
                 .set(field(Cell::isRevealed), false)
+                .set(field(Cell::isMine), false)
                 .create();
 
         cell.reveal();
 
         assertFalse(cell.isRevealed());
+    }
+
+    @Test
+    void reveal_WhenFlaggedAndIsMine_ThrowExplosionException() {
+        var cell = Instancio.of(Cell.class)
+                .set(field(Cell::isFlagged), true)
+                .set(field(Cell::isRevealed), false)
+                .set(field(Cell::isMine), true)
+                .create();
+
+        assertThrows(ExplosionException.class, cell::reveal);
     }
 }
