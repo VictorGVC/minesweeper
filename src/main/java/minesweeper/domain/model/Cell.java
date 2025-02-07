@@ -42,4 +42,8 @@ public class Cell {
         if (!isRevealed())
             flagged = !flagged;
     }
+
+    public void reveal() {
+
+    }
 }

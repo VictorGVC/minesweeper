@@ -47,4 +47,28 @@ class CellTest {
 
         assertEquals(flag, cell.isFlagged());
     }
+
+    @Test
+    void reveal_WhenNotFlagged_ReviewCell() {
+        var cell = Instancio.of(Cell.class)
+                .set(field(Cell::isFlagged), false)
+                .set(field(Cell::isRevealed), false)
+                .create();
+
+        cell.reveal();
+
+        assertTrue(cell.isRevealed());
+    }
+
+    @Test
+    void reveal_WhenFlagged_NotReviewCell() {
+        var cell = Instancio.of(Cell.class)
+                .set(field(Cell::isFlagged), true)
+                .set(field(Cell::isRevealed), false)
+                .create();
+
+        cell.reveal();
+
+        assertFalse(cell.isRevealed());
+    }
 }
