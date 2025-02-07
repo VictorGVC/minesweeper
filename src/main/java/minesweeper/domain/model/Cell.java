@@ -1,5 +1,7 @@
 package minesweeper.domain.model;
 
+import minesweeper.domain.exception.ExplosionException;
+
 public class Cell {
     private boolean mine;
     private boolean flagged;
@@ -36,8 +38,12 @@ public class Cell {
     }
 
     public void reveal() {
-        if (!isFlagged()) {
-            revealed = true;
-        }
+        if (isFlagged())
+            return;
+
+        if (isMine())
+            throw new ExplosionException();
+
+        revealed = true;
     }
 }
