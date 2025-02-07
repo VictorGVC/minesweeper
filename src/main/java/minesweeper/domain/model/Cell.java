@@ -33,16 +33,13 @@ public class Cell {
     }
 
     public void toggleFlag() {
-        if (!isRevealed())
-            flagged = !flagged;
+        if (!isRevealed()) flagged = !flagged;
     }
 
     public void reveal() {
-        if (isFlagged())
-            return;
+        if (isFlagged()) return;
 
-        if (isMine())
-            throw new ExplosionException();
+        if (isMine()) throw new ExplosionException();
 
         revealed = true;
     }

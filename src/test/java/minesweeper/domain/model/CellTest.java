@@ -1,13 +1,13 @@
 package minesweeper.domain.model;
 
+import static org.instancio.Select.field;
+import static org.junit.jupiter.api.Assertions.*;
+
 import minesweeper.domain.exception.ExplosionException;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import static org.instancio.Select.field;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CellTest {
 
