@@ -3,17 +3,17 @@ package minesweeper.domain.model;
 import minesweeper.domain.exception.ExplosionException;
 
 public class Cell {
-    private boolean mine;
+    private final boolean mine;
     private boolean flagged;
     private boolean revealed;
     private int adjacentMines;
 
-    public boolean isMine() {
-        return mine;
+    public Cell(boolean mine) {
+        this.mine = mine;
     }
 
-    public void setMine(boolean mine) {
-        this.mine = mine;
+    public boolean isMine() {
+        return mine;
     }
 
     public boolean isFlagged() {
