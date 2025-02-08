@@ -54,6 +54,7 @@ class CellTest {
         var cell = Instancio.of(Cell.class)
                 .set(field(Cell::isFlagged), false)
                 .set(field(Cell::isRevealed), false)
+                .set(field(Cell::isMine), false)
                 .create();
 
         cell.reveal();
