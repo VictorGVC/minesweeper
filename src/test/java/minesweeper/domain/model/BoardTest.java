@@ -20,7 +20,7 @@ class BoardTest {
     void Board_WhenCreated_HaveCorrectSize() {
         var board = new Board(3, 4);
 
-        assertEquals(3, board.getCellBoard().get(0).size());
-        assertEquals(4, board.getCellBoard().size());
+        assertEquals(4, board.getCellBoard().get(0).size());
+        assertEquals(3, board.getCellBoard().size());
     }
 }
