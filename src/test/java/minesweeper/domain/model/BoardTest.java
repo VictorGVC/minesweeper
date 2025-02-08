@@ -8,19 +8,19 @@ class BoardTest {
 
     @Test
     void Board_WhenInvalidHeight_ThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> new Board(0, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Board(2, 3));
     }
 
     @Test
     void Board_WhenInvalidWeight_ThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> new Board(1, 0));
+        assertThrows(IllegalArgumentException.class, () -> new Board(3, 2));
     }
 
     @Test
     void Board_WhenCreated_HaveCorrectSize() {
-        var board = new Board(2, 3);
+        var board = new Board(3, 4);
 
-        assertEquals(2, board.getCellBoard().get(0).size());
-        assertEquals(3, board.getCellBoard().size());
+        assertEquals(3, board.getCellBoard().get(0).size());
+        assertEquals(4, board.getCellBoard().size());
     }
 }
